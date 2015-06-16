@@ -61,6 +61,13 @@
     <Compile Include="frmSetting.Designer.cs">
       <DependentUpon>frmSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSyncState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSyncState.Designer.cs">
+      <DependentUpon>frmSyncState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotifyIconMgr.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingMgr.cs" />
@@ -70,6 +77,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSetting.resx">
       <DependentUpon>frmSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSyncState.resx">
+      <DependentUpon>frmSyncState.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

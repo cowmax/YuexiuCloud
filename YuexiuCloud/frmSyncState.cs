@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace YuexiuCloud
 {
-    public partial class frmSetting : Form
+    public partial class frmSyncState : Form
     {
-        public frmSetting()
+        public frmSyncState()
         {
             InitializeComponent();
-        }
-
-        private void frmSetting_Load(object sender, EventArgs e)
-        {
-            NotifyIconMgr ntfIcon = new NotifyIconMgr(ntficonYuexiuCloud);
-            ntfIcon.show();
         }
     }
 }
