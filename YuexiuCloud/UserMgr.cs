@@ -76,16 +76,69 @@ namespace YuexiuCloud
             }
         }
 
+        [DataContract]
+        internal class UserStatus
+        {
+            [DataMember]
+            public string status;
+            [DataMember]
+            public string isAdmin;
+            [DataMember]
+            public string isProjectManager;
+            [DataMember]
+            public string addGroup;
+            [DataMember]
+            public string memberId;
+            [DataMember]
+            public string largeAttachId;
+            [DataMember]
+            public string personGroupId;
+            [DataMember]
+            public string memberName;
+            [DataMember]
+            public string name;
+            [DataMember]
+            public string account;
+            [DataMember]
+            public string memberIp;
+        }
+
         internal class UserInfo
         {
             internal bool isFirstTimeLogin;
-            internal bool isLegalUser;
-            internal MemberCollection memberInfo;
 
-            internal bool parse(string rspData)
+            public bool isLegalUser
+            {
+                get
+                {
+                    if (userStatus != null)
+                    {
+                        return (userStatus.status == "login");
+                    }
+                    return false;
+                }
+            }
+
+            internal MemberCollection memberInfo;
+            internal Member currentMemberInfo;
+            internal UserStatus userStatus;
+
+            internal bool parseLoginResult(string rspData)
             {
                 memberInfo = JsonHelper.JsonDeserialize<MemberCollection>(rspData);
                 return (memberInfo != null);
+            }
+
+            internal bool parseStatusResult(string rspData)
+            {
+                userStatus = JsonHelper.JsonDeserialize<UserStatus>(rspData);
+                return (userStatus != null);
+            }
+
+            internal bool parseSelMemberResult(string rspData)
+            {
+                currentMemberInfo = JsonHelper.JsonDeserialize<Member>(rspData);
+                return (currentMemberInfo != null);
             }
         }
 
@@ -101,7 +154,7 @@ namespace YuexiuCloud
             string rspData = wc.UploadString(trgUrl, strParam);
 
             // 2. select member
-            bool bSucc = ui.parse(rspData);
+            bool bSucc = ui.parseLoginResult(rspData);
             if (bSucc)
             {
                 wc = getWebClient();
@@ -110,7 +163,7 @@ namespace YuexiuCloud
                 strParam = string.Format("memberId={0}", ui.memberInfo[0].id);
                 rspData = wc.UploadString(trgUrl,strParam);
 
-                bSucc = isSelectMemberSuccess(rspData);
+                bSucc = ui.parseSelMemberResult(rspData);
             }
 
             // 3. get user status
@@ -120,20 +173,10 @@ namespace YuexiuCloud
                 trgUrl = stg.CloudServerUrl + "/user/status.action";
                 rspData = wc.UploadString(trgUrl, "");
 
-                bSucc = isValidUserStatus(rspData);
+                bSucc = ui.parseStatusResult(rspData);
             }
 
             return ui;
-        }
-
-        private bool isValidUserStatus(string rspData)
-        {
-            return true;
-        }
-
-        private bool isSelectMemberSuccess(string rspData)
-        {
-            return true;
         }
 
         internal string getRandomString()

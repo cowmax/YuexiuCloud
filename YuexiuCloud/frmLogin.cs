@@ -35,7 +35,9 @@ namespace YuexiuCloud
                 }
                 else
                 {
+                    frmStg.Show();
                     frmStg.Hide();
+                    this.Hide();
                 }
             }
             else
