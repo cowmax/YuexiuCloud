@@ -25,6 +25,22 @@ namespace YuexiuCloud
             _ntfIcon.Visible = false;
         }
 
+        public enum NtfIconState { Online, Offline};
+
+        public void setState(NtfIconState state)
+        {
+            switch (state)
+            {
+                case NtfIconState.Online:
+                    _ntfIcon.Icon = Properties.Resources.iconYuexiu;
+                    break;
+
+                case NtfIconState.Offline:
+                    // _ntfIcon.Icon = Properties.Resources.iconYuexiuOffline;
+                    break;
+            }
+        }
+
         public void popInfo(string info = null)
         {
             if (info != null)

@@ -16,7 +16,7 @@ namespace YuexiuCloud
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSetting());
+            Application.Run(new frmLogin());
         }
     }
 }
