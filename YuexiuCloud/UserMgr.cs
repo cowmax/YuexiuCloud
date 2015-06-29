@@ -13,6 +13,7 @@ namespace YuexiuCloud
     class UserMgr
     {
         WebClient _wc = null;
+        string _cookie = null;
 
         public UserMgr()
         {
@@ -21,9 +22,17 @@ namespace YuexiuCloud
 
         internal WebClient  getWebClient()
         {
-            string cookie = null;
-            if (_wc == null) _wc = new WebClient();
-            else cookie = _wc.ResponseHeaders["Set-Cookie"];
+            if (_wc == null)
+            {
+                _wc = new WebClient();
+            }
+            else // Update cookie
+            {
+                if (_wc.ResponseHeaders.AllKeys.Contains("Set-Cookie"))
+                {
+                    _cookie = _wc.ResponseHeaders["Set-Cookie"];
+                }
+            }
             
             _wc.Headers.Clear();
             _wc.Headers.Add(HttpRequestHeader.ContentType, "application/x-www-form-urlencoded");
@@ -31,9 +40,9 @@ namespace YuexiuCloud
             _wc.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip, deflate");
             _wc.Headers.Add(HttpRequestHeader.AcceptLanguage, "zh-CN,zh;q=0.8,en;q=0.6,zh-TW;q=0.4");
 
-            if (cookie != null)
+            if (_cookie != null)
             {
-                _wc.Headers.Add(HttpRequestHeader.Cookie, cookie);
+                _wc.Headers.Add(HttpRequestHeader.Cookie, _cookie);
             }
 
             return _wc;
