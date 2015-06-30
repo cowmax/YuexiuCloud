@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoSyncMgr.cs" />
+    <Compile Include="comcode\EncryptionHelper.cs" />
     <Compile Include="comcode\JsonHelper.cs" />
     <Compile Include="ExplrIntgr.cs" />
     <Compile Include="FileDownloader.cs" />

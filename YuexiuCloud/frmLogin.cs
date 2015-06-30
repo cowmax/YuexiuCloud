@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows.Forms;
+using Encryption;
 
 namespace YuexiuCloud
 {
@@ -15,10 +10,10 @@ namespace YuexiuCloud
         public frmLogin()
         {
             InitializeComponent();
-
+            loadAccountInfo();
 #if DEBUG
-            txbPassword.Text = "tongbu";
-            txbUserName.Text = "tongbu";
+            //txbPassword.Text = "tongbu";
+            //txbUserName.Text = "tongbu";
 #endif
         }
 
@@ -39,6 +34,7 @@ namespace YuexiuCloud
                     frmStg.Hide();
                     this.Hide();
                 }
+                saveAccountInfo(ckbRememberAccount.Checked);
             }
             else
             {
@@ -46,9 +42,52 @@ namespace YuexiuCloud
             }
         }
 
+        // Save or clear account info
+        private void saveAccountInfo(bool save)
+        {
+            Properties.Settings stg = new Properties.Settings();
+            if (save)
+            {
+                string acnt = EncryptionHelper.DESEncode(txbUserName.Text.Trim(), "yuexiuCloud");
+                string pswd = EncryptionHelper.DESEncode(txbPassword.Text.Trim(), txbUserName.Text.Trim());
+                stg.Account = acnt + "|" + pswd;
+            }
+            else
+            {
+                stg.Account = "";
+            }
+            stg.Save();
+        }
+
+        private void loadAccountInfo()
+        {
+            Properties.Settings stg = new Properties.Settings();
+            if (string.IsNullOrEmpty(stg.Account))
+            {
+                txbPassword.Text = "";
+                txbUserName.Text = "";
+            }
+            else
+            {
+                string[] ss = stg.Account.Split('|');
+                string acnt = ss[0];
+                string pswd = ss[1];
+                txbUserName.Text = EncryptionHelper.DESDecode(acnt, "yuexiuCloud");
+                txbPassword.Text = EncryptionHelper.DESDecode(pswd, acnt);
+
+                ckbRememberAccount.Checked = true;
+            }
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void lnkFogetPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Properties.Settings stg = new Properties.Settings();
+            Process.Start(stg.ForgetPasword);
         }
     }
 }

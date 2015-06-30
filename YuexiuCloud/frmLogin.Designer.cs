@@ -34,7 +34,7 @@
             this.txbPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.ckbRememberAccount = new System.Windows.Forms.CheckBox();
             this.lnkFogetPassword = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
@@ -90,25 +90,26 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // checkBox1
+            // ckbRememberAccount
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(116, 178);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(72, 16);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "记住密码";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ckbRememberAccount.AutoSize = true;
+            this.ckbRememberAccount.Location = new System.Drawing.Point(116, 177);
+            this.ckbRememberAccount.Name = "ckbRememberAccount";
+            this.ckbRememberAccount.Size = new System.Drawing.Size(72, 16);
+            this.ckbRememberAccount.TabIndex = 5;
+            this.ckbRememberAccount.Text = "记住密码";
+            this.ckbRememberAccount.UseVisualStyleBackColor = true;
             // 
             // lnkFogetPassword
             // 
             this.lnkFogetPassword.AutoSize = true;
-            this.lnkFogetPassword.Location = new System.Drawing.Point(264, 179);
+            this.lnkFogetPassword.Location = new System.Drawing.Point(264, 181);
             this.lnkFogetPassword.Name = "lnkFogetPassword";
             this.lnkFogetPassword.Size = new System.Drawing.Size(95, 12);
             this.lnkFogetPassword.TabIndex = 6;
             this.lnkFogetPassword.TabStop = true;
             this.lnkFogetPassword.Text = "我忘记了密码...";
+            this.lnkFogetPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkFogetPassword_LinkClicked);
             // 
             // frmLogin
             // 
@@ -116,7 +117,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(371, 206);
             this.Controls.Add(this.lnkFogetPassword);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.ckbRememberAccount);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txbPassword);
@@ -141,7 +142,7 @@
         private System.Windows.Forms.TextBox txbPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox ckbRememberAccount;
         private System.Windows.Forms.LinkLabel lnkFogetPassword;
     }
 }

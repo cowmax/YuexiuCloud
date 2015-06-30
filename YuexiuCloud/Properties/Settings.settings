@@ -5,5 +5,11 @@
     <Setting Name="CloudServerUrl" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://58.248.25.253:9090</Value>
     </Setting>
+    <Setting Name="Account" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ForgetPasword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://58.248.25.253:9090/pages/c/login.jsp</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

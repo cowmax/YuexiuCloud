@@ -34,5 +34,29 @@ namespace YuexiuCloud.Properties {
                 this["CloudServerUrl"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Account {
+            get {
+                return ((string)(this["Account"]));
+            }
+            set {
+                this["Account"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://58.248.25.253:9090/pages/c/login.jsp")]
+        public string ForgetPasword {
+            get {
+                return ((string)(this["ForgetPasword"]));
+            }
+            set {
+                this["ForgetPasword"] = value;
+            }
+        }
     }
 }
