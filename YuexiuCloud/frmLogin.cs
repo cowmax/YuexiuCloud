@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Net;
 using System.Windows.Forms;
 using Encryption;
 
 namespace YuexiuCloud
 {
-    public partial class frmLogin : Form
+    public partial class FrmLogin : Form
     {
-        public frmLogin()
+        public FrmLogin()
         {
             InitializeComponent();
             loadAccountInfo();
@@ -20,19 +21,21 @@ namespace YuexiuCloud
         private void btnLogin_Click(object sender, EventArgs e)
         {
             UserMgr um = new UserMgr();
-            UserMgr.UserInfo ui = um.login(txbUserName.Text, txbPassword.Text);
+            LoginResult result = um.login(txbUserName.Text, txbPassword.Text);
 
-            if (ui.isLegalUser)
+            if (result.ui.isLegalUser)
             {
-                frmSetting frmStg = new frmSetting();
-                if (ui.isFirstTimeLogin){
+                increaseLoginTimes();
+                this.Hide();
+                if (isFirstTimeLogin())
+                {
+                    FrmSetting frmStg = Program.getSettingForm();
                     frmStg.Show();
                 }
                 else
                 {
-                    frmStg.Show();
-                    frmStg.Hide();
-                    this.Hide();
+                    NotifyIconMgr ntfIcon = new NotifyIconMgr(ntficonYuexiuCloud);
+                    ntfIcon.show();
                 }
                 saveAccountInfo(ckbRememberAccount.Checked);
             }
@@ -40,6 +43,23 @@ namespace YuexiuCloud
             {
                 MessageBox.Show("登录同步盘失败，请确认用户名/密码是否正确。", "同步盘登录");
             }
+        }
+
+        private int increaseLoginTimes()
+        {
+            Properties.Settings stg = new Properties.Settings();
+            int t = int.Parse(stg.LoginTimes);
+            stg.LoginTimes = (++t).ToString();
+            stg.Save();
+            return t;
+        }
+
+        private bool isFirstTimeLogin()
+        {
+            Properties.Settings stg = new Properties.Settings();
+            int t = int.Parse(stg.LoginTimes);
+
+            return (t == 1);
         }
 
         // Save or clear account info
@@ -88,6 +108,21 @@ namespace YuexiuCloud
         {
             Properties.Settings stg = new Properties.Settings();
             Process.Start(stg.ForgetPasword);
+        }
+
+        private void miExit_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("关闭同步盘后，本地文件下云盘将不能保持同步\n确定要退出吗？", "退出同步盘", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Close();
+                Program.frmLogin.Close();
+            }
+        }
+
+        private void miShowSetting_Click(object sender, EventArgs e)
+        {
+            FrmSetting frm = Program.getSettingForm();
+            frm.Show();
         }
     }
 }

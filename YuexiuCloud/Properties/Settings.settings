@@ -11,5 +11,8 @@
     <Setting Name="ForgetPasword" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://58.248.25.253:9090/pages/c/login.jsp</Value>
     </Setting>
+    <Setting Name="LoginTimes" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

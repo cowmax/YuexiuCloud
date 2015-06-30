@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace YuexiuCloud
 {
-    public partial class frmSyncState : Form
+    public partial class FrmSyncState : Form
     {
-        public frmSyncState()
+        public FrmSyncState()
         {
             InitializeComponent();
         }

@@ -7,10 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using ComCode;
+using Logging;
 
 namespace YuexiuCloud
 {
-    class UserMgr
+    public class UserMgr
     {
         WebClient _wc = null;
         string _cookie = null;
@@ -103,9 +104,9 @@ namespace YuexiuCloud
             public string memberIp;
         }
 
-        internal class UserInfo
+        public class UserInfo
         {
-            internal bool isFirstTimeLogin;
+            internal string statusMsg;
 
             public bool isLegalUser
             {
@@ -142,41 +143,51 @@ namespace YuexiuCloud
             }
         }
 
-        internal UserInfo login(string userName, string password)
+        internal LoginResult login(string userName, string password)
         {
             Properties.Settings stg = new Properties.Settings();
-            
+            LoginResult result = new LoginResult();
             UserInfo ui = new UserInfo();
-            // 1. login
-            WebClient wc = getWebClient();
-            string strParam = string.Format("account={0}&password={1}", userName, password);
-            string trgUrl = stg.CloudServerUrl + "/login/authenticate.action";
-            string rspData = wc.UploadString(trgUrl, strParam);
-
-            // 2. select member
-            bool bSucc = ui.parseLoginResult(rspData);
-            if (bSucc)
+            try
             {
-                wc = getWebClient();
-                wc.Headers.Add(HttpRequestHeader.Referer, trgUrl);
-                trgUrl = stg.CloudServerUrl + "/login/selectMember.action?temp="+ getRandomString();
-                strParam = string.Format("memberId={0}", ui.memberInfo[0].id);
-                rspData = wc.UploadString(trgUrl,strParam);
+                // 1. login
+                WebClient wc = getWebClient();
+                string strParam = string.Format("account={0}&password={1}", userName, password);
+                string trgUrl = stg.CloudServerUrl + "/login/authenticate.action";
+                string rspData = wc.UploadString(trgUrl, strParam);
 
-                bSucc = ui.parseSelMemberResult(rspData);
+                // 2. select member
+                bool bSucc = ui.parseLoginResult(rspData);
+                if (bSucc)
+                {
+                    wc = getWebClient();
+                    wc.Headers.Add(HttpRequestHeader.Referer, trgUrl);
+                    trgUrl = stg.CloudServerUrl + "/login/selectMember.action?temp=" + getRandomString();
+                    strParam = string.Format("memberId={0}", ui.memberInfo[0].id);
+                    rspData = wc.UploadString(trgUrl, strParam);
+
+                    bSucc = ui.parseSelMemberResult(rspData);
+                }
+
+                // 3. get user status
+                if (bSucc)
+                {
+                    wc = getWebClient();
+                    trgUrl = stg.CloudServerUrl + "/user/status.action";
+                    rspData = wc.UploadString(trgUrl, "");
+
+                    bSucc = ui.parseStatusResult(rspData);
+                }
+            }
+            catch(WebException ex)
+            {
+                result.code = "error";
+                result.msg = "登录失败。原因：" + ex.Message;
+                LogHelper.error(result.msg);
             }
 
-            // 3. get user status
-            if (bSucc)
-            {
-                wc = getWebClient();
-                trgUrl = stg.CloudServerUrl + "/user/status.action";
-                rspData = wc.UploadString(trgUrl, "");
-
-                bSucc = ui.parseStatusResult(rspData);
-            }
-
-            return ui;
+            result.ui = ui;
+            return result;
         }
 
         internal string getRandomString()

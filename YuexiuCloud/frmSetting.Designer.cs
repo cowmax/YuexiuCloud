@@ -1,6 +1,6 @@
 ﻿namespace YuexiuCloud
 {
-    partial class frmSetting
+    partial class FrmSetting
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSetting));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSetting));
             this.tabAdvanceStg = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -37,8 +36,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.tabNormalStg = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -47,29 +44,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.ntficonYuexiuCloud = new System.Windows.Forms.NotifyIcon(this.components);
-            this.muStripYuexiu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.miOpenLocalFolder = new System.Windows.Forms.ToolStripMenuItem();
-            this.miOpenWebSite = new System.Windows.Forms.ToolStripMenuItem();
-            this.miOpenRecycleBin = new System.Windows.Forms.ToolStripMenuItem();
-            this.miBrowseSyncState = new System.Windows.Forms.ToolStripMenuItem();
-            this.miStartSync = new System.Windows.Forms.ToolStripMenuItem();
-            this.miPauseSync = new System.Windows.Forms.ToolStripMenuItem();
-            this.miShutdownPC = new System.Windows.Forms.ToolStripMenuItem();
-            this.miBrowseBackupState = new System.Windows.Forms.ToolStripMenuItem();
-            this.miBrowseBackupFolder = new System.Windows.Forms.ToolStripMenuItem();
-            this.miShowSetting = new System.Windows.Forms.ToolStripMenuItem();
-            this.miHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.miExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.toooooooooo1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toooooooooo2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toooooooooo3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toooooooooo4 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSaveSetting = new System.Windows.Forms.Button();
             this.tabAdvanceStg.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabNormalStg.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.muStripYuexiu.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabAdvanceStg
@@ -138,8 +118,6 @@
             // 
             // tabNormalStg
             // 
-            this.tabNormalStg.Controls.Add(this.button3);
-            this.tabNormalStg.Controls.Add(this.button2);
             this.tabNormalStg.Controls.Add(this.button1);
             this.tabNormalStg.Controls.Add(this.checkBox3);
             this.tabNormalStg.Controls.Add(this.checkBox1);
@@ -150,28 +128,10 @@
             this.tabNormalStg.Location = new System.Drawing.Point(4, 22);
             this.tabNormalStg.Name = "tabNormalStg";
             this.tabNormalStg.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNormalStg.Size = new System.Drawing.Size(406, 248);
+            this.tabNormalStg.Size = new System.Drawing.Size(406, 201);
             this.tabNormalStg.TabIndex = 1;
             this.tabNormalStg.Text = "常规设置";
             this.tabNormalStg.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(310, 206);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 25);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "取消";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(229, 206);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 25);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "确定";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -241,144 +201,42 @@
             this.tabControl1.Location = new System.Drawing.Point(5, 1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(414, 274);
+            this.tabControl1.Size = new System.Drawing.Size(414, 227);
             this.tabControl1.TabIndex = 0;
             // 
-            // ntficonYuexiuCloud
+            // btnCancel
             // 
-            this.ntficonYuexiuCloud.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.ntficonYuexiuCloud.BalloonTipText = "双击打开本地同步盘";
-            this.ntficonYuexiuCloud.BalloonTipTitle = "越秀同步盘";
-            this.ntficonYuexiuCloud.ContextMenuStrip = this.muStripYuexiu;
-            this.ntficonYuexiuCloud.Icon = ((System.Drawing.Icon)(resources.GetObject("ntficonYuexiuCloud.Icon")));
-            this.ntficonYuexiuCloud.Text = "越秀云盘";
+            this.btnCancel.Location = new System.Drawing.Point(340, 242);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 25);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "取消";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // muStripYuexiu
+            // btnSaveSetting
             // 
-            this.muStripYuexiu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miOpenLocalFolder,
-            this.miOpenWebSite,
-            this.miOpenRecycleBin,
-            this.toooooooooo4,
-            this.miBrowseSyncState,
-            this.miStartSync,
-            this.miPauseSync,
-            this.miShutdownPC,
-            this.toooooooooo3,
-            this.miBrowseBackupState,
-            this.miBrowseBackupFolder,
-            this.toooooooooo2,
-            this.miShowSetting,
-            this.miHelp,
-            this.toooooooooo1,
-            this.miExit});
-            this.muStripYuexiu.Name = "muStripYuexiu";
-            this.muStripYuexiu.Size = new System.Drawing.Size(173, 314);
-            this.muStripYuexiu.Text = "越秀同步盘功能菜单";
+            this.btnSaveSetting.Location = new System.Drawing.Point(259, 242);
+            this.btnSaveSetting.Name = "btnSaveSetting";
+            this.btnSaveSetting.Size = new System.Drawing.Size(75, 25);
+            this.btnSaveSetting.TabIndex = 7;
+            this.btnSaveSetting.Text = "确定";
+            this.btnSaveSetting.UseVisualStyleBackColor = true;
+            this.btnSaveSetting.Click += new System.EventHandler(this.btnSaveSetting_Click);
             // 
-            // miOpenLocalFolder
-            // 
-            this.miOpenLocalFolder.Name = "miOpenLocalFolder";
-            this.miOpenLocalFolder.Size = new System.Drawing.Size(172, 22);
-            this.miOpenLocalFolder.Text = "打开越秀同步盘";
-            // 
-            // miOpenWebSite
-            // 
-            this.miOpenWebSite.Name = "miOpenWebSite";
-            this.miOpenWebSite.Size = new System.Drawing.Size(172, 22);
-            this.miOpenWebSite.Text = "打开越秀云盘首页";
-            // 
-            // miOpenRecycleBin
-            // 
-            this.miOpenRecycleBin.Name = "miOpenRecycleBin";
-            this.miOpenRecycleBin.Size = new System.Drawing.Size(172, 22);
-            this.miOpenRecycleBin.Text = "打开回收站";
-            // 
-            // miBrowseSyncState
-            // 
-            this.miBrowseSyncState.Name = "miBrowseSyncState";
-            this.miBrowseSyncState.Size = new System.Drawing.Size(172, 22);
-            this.miBrowseSyncState.Text = "查看同步状态";
-            // 
-            // miStartSync
-            // 
-            this.miStartSync.Name = "miStartSync";
-            this.miStartSync.Size = new System.Drawing.Size(172, 22);
-            this.miStartSync.Text = "立即同步";
-            // 
-            // miPauseSync
-            // 
-            this.miPauseSync.Name = "miPauseSync";
-            this.miPauseSync.Size = new System.Drawing.Size(172, 22);
-            this.miPauseSync.Text = "暂停同步";
-            // 
-            // miShutdownPC
-            // 
-            this.miShutdownPC.Name = "miShutdownPC";
-            this.miShutdownPC.Size = new System.Drawing.Size(172, 22);
-            this.miShutdownPC.Text = "同步完成后关机";
-            // 
-            // miBrowseBackupState
-            // 
-            this.miBrowseBackupState.Name = "miBrowseBackupState";
-            this.miBrowseBackupState.Size = new System.Drawing.Size(172, 22);
-            this.miBrowseBackupState.Text = "查看备份状态";
-            // 
-            // miBrowseBackupFolder
-            // 
-            this.miBrowseBackupFolder.Name = "miBrowseBackupFolder";
-            this.miBrowseBackupFolder.Size = new System.Drawing.Size(172, 22);
-            this.miBrowseBackupFolder.Text = "查看我的备份文件";
-            // 
-            // miShowSetting
-            // 
-            this.miShowSetting.Name = "miShowSetting";
-            this.miShowSetting.Size = new System.Drawing.Size(172, 22);
-            this.miShowSetting.Text = "设置";
-            // 
-            // miHelp
-            // 
-            this.miHelp.Name = "miHelp";
-            this.miHelp.Size = new System.Drawing.Size(172, 22);
-            this.miHelp.Text = "帮助";
-            // 
-            // miExit
-            // 
-            this.miExit.Name = "miExit";
-            this.miExit.Size = new System.Drawing.Size(172, 22);
-            this.miExit.Text = "退出";
-            // 
-            // toooooooooo1
-            // 
-            this.toooooooooo1.Name = "toooooooooo1";
-            this.toooooooooo1.Size = new System.Drawing.Size(169, 6);
-            // 
-            // toooooooooo2
-            // 
-            this.toooooooooo2.Name = "toooooooooo2";
-            this.toooooooooo2.Size = new System.Drawing.Size(169, 6);
-            // 
-            // toooooooooo3
-            // 
-            this.toooooooooo3.Name = "toooooooooo3";
-            this.toooooooooo3.Size = new System.Drawing.Size(169, 6);
-            // 
-            // toooooooooo4
-            // 
-            this.toooooooooo4.Name = "toooooooooo4";
-            this.toooooooooo4.Size = new System.Drawing.Size(169, 6);
-            // 
-            // frmSetting
+            // FrmSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 279);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnSaveSetting);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmSetting";
+            this.Name = "FrmSetting";
             this.Text = "越秀同步盘";
             this.Load += new System.EventHandler(this.frmSetting_Load);
             this.tabAdvanceStg.ResumeLayout(false);
@@ -388,7 +246,6 @@
             this.tabNormalStg.ResumeLayout(false);
             this.tabNormalStg.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.muStripYuexiu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -399,8 +256,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabPage tabNormalStg;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox1;
@@ -412,25 +267,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.NotifyIcon ntficonYuexiuCloud;
-
-        private System.Windows.Forms.ContextMenuStrip muStripYuexiu;
-        private System.Windows.Forms.ToolStripMenuItem miOpenLocalFolder;
-        private System.Windows.Forms.ToolStripMenuItem miOpenWebSite;
-        private System.Windows.Forms.ToolStripMenuItem miOpenRecycleBin;
-        private System.Windows.Forms.ToolStripMenuItem miBrowseSyncState;
-        private System.Windows.Forms.ToolStripMenuItem miStartSync;
-        private System.Windows.Forms.ToolStripMenuItem miPauseSync;
-        private System.Windows.Forms.ToolStripMenuItem miShutdownPC;
-        private System.Windows.Forms.ToolStripMenuItem miBrowseBackupState;
-        private System.Windows.Forms.ToolStripMenuItem miBrowseBackupFolder;
-        private System.Windows.Forms.ToolStripMenuItem miShowSetting;
-        private System.Windows.Forms.ToolStripMenuItem miHelp;
-        private System.Windows.Forms.ToolStripMenuItem miExit;
-        private System.Windows.Forms.ToolStripSeparator toooooooooo4;
-        private System.Windows.Forms.ToolStripSeparator toooooooooo3;
-        private System.Windows.Forms.ToolStripSeparator toooooooooo2;
-        private System.Windows.Forms.ToolStripSeparator toooooooooo1;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnSaveSetting;
     }
 }
 

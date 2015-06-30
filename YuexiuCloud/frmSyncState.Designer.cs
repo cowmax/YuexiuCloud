@@ -1,6 +1,6 @@
 ﻿namespace YuexiuCloud
 {
-    partial class frmSyncState
+    partial class FrmSyncState
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSyncState));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSyncState));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabSyncState = new System.Windows.Forms.TabPage();
             this.tabBackup = new System.Windows.Forms.TabPage();
