@@ -70,5 +70,77 @@ namespace YuexiuCloud.Properties {
                 this["LoginTimes"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string UserName {
+            get {
+                return ((string)(this["UserName"]));
+            }
+            set {
+                this["UserName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("D:\\My Documents\\百度云\\HuangDao")]
+        public string SyncFolder {
+            get {
+                return ((string)(this["SyncFolder"]));
+            }
+            set {
+                this["SyncFolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string StartWithPC {
+            get {
+                return ((string)(this["StartWithPC"]));
+            }
+            set {
+                this["StartWithPC"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string addSyncDrive {
+            get {
+                return ((string)(this["addSyncDrive"]));
+            }
+            set {
+                this["addSyncDrive"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SyncDirection {
+            get {
+                return ((string)(this["SyncDirection"]));
+            }
+            set {
+                this["SyncDirection"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ChangeSubFolder {
+            get {
+                return ((string)(this["ChangeSubFolder"]));
+            }
+            set {
+                this["ChangeSubFolder"] = value;
+            }
+        }
     }
 }

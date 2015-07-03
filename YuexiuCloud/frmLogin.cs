@@ -20,7 +20,7 @@ namespace YuexiuCloud
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            UserMgr um = new UserMgr();
+            UserMgr um = Program.getUserMgr();
             LoginResult result = um.login(txbUserName.Text, txbPassword.Text);
 
             if (result.ui.isLegalUser)

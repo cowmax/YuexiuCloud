@@ -31,21 +31,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSetting));
             this.tabAdvanceStg = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.button4 = new System.Windows.Forms.Button();
+            this.rdbSyncDirectionToLocal = new System.Windows.Forms.RadioButton();
+            this.rdbSyncDirectionToCloud = new System.Windows.Forms.RadioButton();
+            this.btnChangeSubFolder = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.tabNormalStg = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnSelSyncFolder = new System.Windows.Forms.Button();
+            this.ckbAddSyncDrive = new System.Windows.Forms.CheckBox();
+            this.ckbStartWithPC = new System.Windows.Forms.CheckBox();
+            this.txbSyncFolder = new System.Windows.Forms.TextBox();
             this.txbUserName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSaveSetting = new System.Windows.Forms.Button();
+            this.fdrBrwDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.tabAdvanceStg.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabNormalStg.SuspendLayout();
@@ -55,20 +56,20 @@
             // tabAdvanceStg
             // 
             this.tabAdvanceStg.Controls.Add(this.groupBox1);
-            this.tabAdvanceStg.Controls.Add(this.button4);
+            this.tabAdvanceStg.Controls.Add(this.btnChangeSubFolder);
             this.tabAdvanceStg.Controls.Add(this.label3);
             this.tabAdvanceStg.Location = new System.Drawing.Point(4, 22);
             this.tabAdvanceStg.Name = "tabAdvanceStg";
             this.tabAdvanceStg.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAdvanceStg.Size = new System.Drawing.Size(406, 248);
+            this.tabAdvanceStg.Size = new System.Drawing.Size(406, 201);
             this.tabAdvanceStg.TabIndex = 3;
             this.tabAdvanceStg.Text = "高级设置";
             this.tabAdvanceStg.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.rdbSyncDirectionToLocal);
+            this.groupBox1.Controls.Add(this.rdbSyncDirectionToCloud);
             this.groupBox1.Location = new System.Drawing.Point(21, 84);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(279, 100);
@@ -76,36 +77,37 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "同步方向";
             // 
-            // radioButton2
+            // rdbSyncDirectionToLocal
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(22, 62);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(119, 16);
-            this.radioButton2.TabIndex = 0;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "由云端向本地同步";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdbSyncDirectionToLocal.AutoSize = true;
+            this.rdbSyncDirectionToLocal.Location = new System.Drawing.Point(22, 62);
+            this.rdbSyncDirectionToLocal.Name = "rdbSyncDirectionToLocal";
+            this.rdbSyncDirectionToLocal.Size = new System.Drawing.Size(119, 16);
+            this.rdbSyncDirectionToLocal.TabIndex = 0;
+            this.rdbSyncDirectionToLocal.TabStop = true;
+            this.rdbSyncDirectionToLocal.Text = "由云端向本地同步";
+            this.rdbSyncDirectionToLocal.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rdbSyncDirectionToCloud
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(22, 32);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(119, 16);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "由本地向云端同步";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdbSyncDirectionToCloud.AutoSize = true;
+            this.rdbSyncDirectionToCloud.Location = new System.Drawing.Point(22, 32);
+            this.rdbSyncDirectionToCloud.Name = "rdbSyncDirectionToCloud";
+            this.rdbSyncDirectionToCloud.Size = new System.Drawing.Size(119, 16);
+            this.rdbSyncDirectionToCloud.TabIndex = 0;
+            this.rdbSyncDirectionToCloud.TabStop = true;
+            this.rdbSyncDirectionToCloud.Text = "由本地向云端同步";
+            this.rdbSyncDirectionToCloud.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnChangeSubFolder
             // 
-            this.button4.Location = new System.Drawing.Point(316, 34);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "选择文件夹";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnChangeSubFolder.Location = new System.Drawing.Point(316, 34);
+            this.btnChangeSubFolder.Name = "btnChangeSubFolder";
+            this.btnChangeSubFolder.Size = new System.Drawing.Size(75, 23);
+            this.btnChangeSubFolder.TabIndex = 1;
+            this.btnChangeSubFolder.Text = "选择文件夹";
+            this.btnChangeSubFolder.UseVisualStyleBackColor = true;
+            this.btnChangeSubFolder.Click += new System.EventHandler(this.btnChangeSubFolder_Click);
             // 
             // label3
             // 
@@ -118,10 +120,10 @@
             // 
             // tabNormalStg
             // 
-            this.tabNormalStg.Controls.Add(this.button1);
-            this.tabNormalStg.Controls.Add(this.checkBox3);
-            this.tabNormalStg.Controls.Add(this.checkBox1);
-            this.tabNormalStg.Controls.Add(this.textBox1);
+            this.tabNormalStg.Controls.Add(this.btnSelSyncFolder);
+            this.tabNormalStg.Controls.Add(this.ckbAddSyncDrive);
+            this.tabNormalStg.Controls.Add(this.ckbStartWithPC);
+            this.tabNormalStg.Controls.Add(this.txbSyncFolder);
             this.tabNormalStg.Controls.Add(this.txbUserName);
             this.tabNormalStg.Controls.Add(this.label2);
             this.tabNormalStg.Controls.Add(this.label1);
@@ -133,46 +135,48 @@
             this.tabNormalStg.Text = "常规设置";
             this.tabNormalStg.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnSelSyncFolder
             // 
-            this.button1.Location = new System.Drawing.Point(310, 75);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 25);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "更改目录";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSelSyncFolder.Location = new System.Drawing.Point(310, 75);
+            this.btnSelSyncFolder.Name = "btnSelSyncFolder";
+            this.btnSelSyncFolder.Size = new System.Drawing.Size(75, 25);
+            this.btnSelSyncFolder.TabIndex = 5;
+            this.btnSelSyncFolder.Text = "更改目录";
+            this.btnSelSyncFolder.UseVisualStyleBackColor = true;
+            this.btnSelSyncFolder.Click += new System.EventHandler(this.btnSelSyncFolder_Click);
             // 
-            // checkBox3
+            // ckbAddSyncDrive
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(35, 155);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(252, 16);
-            this.checkBox3.TabIndex = 4;
-            this.checkBox3.Text = "在“我的电脑”中创建”越秀同步盘“盘符";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.ckbAddSyncDrive.AutoSize = true;
+            this.ckbAddSyncDrive.Location = new System.Drawing.Point(35, 155);
+            this.ckbAddSyncDrive.Name = "ckbAddSyncDrive";
+            this.ckbAddSyncDrive.Size = new System.Drawing.Size(252, 16);
+            this.ckbAddSyncDrive.TabIndex = 4;
+            this.ckbAddSyncDrive.Text = "在“我的电脑”中创建”越秀同步盘“盘符";
+            this.ckbAddSyncDrive.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // ckbStartWithPC
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(35, 128);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(132, 16);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "开机启动越秀同步盘";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ckbStartWithPC.AutoSize = true;
+            this.ckbStartWithPC.Location = new System.Drawing.Point(35, 128);
+            this.ckbStartWithPC.Name = "ckbStartWithPC";
+            this.ckbStartWithPC.Size = new System.Drawing.Size(132, 16);
+            this.ckbStartWithPC.TabIndex = 4;
+            this.ckbStartWithPC.Text = "开机启动越秀同步盘";
+            this.ckbStartWithPC.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txbSyncFolder
             // 
-            this.textBox1.Location = new System.Drawing.Point(94, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 21);
-            this.textBox1.TabIndex = 3;
+            this.txbSyncFolder.Location = new System.Drawing.Point(94, 77);
+            this.txbSyncFolder.Name = "txbSyncFolder";
+            this.txbSyncFolder.Size = new System.Drawing.Size(195, 21);
+            this.txbSyncFolder.TabIndex = 3;
             // 
             // txbUserName
             // 
             this.txbUserName.Location = new System.Drawing.Point(94, 36);
             this.txbUserName.Name = "txbUserName";
+            this.txbUserName.ReadOnly = true;
             this.txbUserName.Size = new System.Drawing.Size(195, 21);
             this.txbUserName.TabIndex = 1;
             // 
@@ -253,22 +257,23 @@
         #endregion
 
         private System.Windows.Forms.TabPage tabAdvanceStg;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnChangeSubFolder;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabPage tabNormalStg;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnSelSyncFolder;
+        private System.Windows.Forms.CheckBox ckbAddSyncDrive;
+        private System.Windows.Forms.CheckBox ckbStartWithPC;
+        private System.Windows.Forms.TextBox txbSyncFolder;
         private System.Windows.Forms.TextBox txbUserName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rdbSyncDirectionToLocal;
+        private System.Windows.Forms.RadioButton rdbSyncDirectionToCloud;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSaveSetting;
+        private System.Windows.Forms.FolderBrowserDialog fdrBrwDialog;
     }
 }
 

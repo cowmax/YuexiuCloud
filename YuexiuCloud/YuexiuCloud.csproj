@@ -54,9 +54,14 @@
     <Compile Include="AutoSyncMgr.cs" />
     <Compile Include="comcode\Base.cs" />
     <Compile Include="comcode\EncryptionHelper.cs" />
+    <Compile Include="comcode\IconHelper.cs" />
     <Compile Include="comcode\JsonHelper.cs" />
+    <Compile Include="comcode\TreeViewHelper.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ExplrIntgr.cs" />
     <Compile Include="FileDownloader.cs" />
+    <Compile Include="FileMgr.cs" />
     <Compile Include="FileUploader.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -69,6 +74,12 @@
     </Compile>
     <Compile Include="FrmSetting.Designer.cs">
       <DependentUpon>FrmSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSubFolderDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSubFolderDialog.Designer.cs">
+      <DependentUpon>FrmSubFolderDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSyncState.cs">
       <SubType>Form</SubType>
@@ -87,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSetting.resx">
       <DependentUpon>FrmSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSubFolderDialog.resx">
+      <DependentUpon>FrmSubFolderDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSyncState.resx">
       <DependentUpon>FrmSyncState.cs</DependentUpon>
